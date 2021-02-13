@@ -1,8 +1,6 @@
 let points = 0;
 
 function australia(userAnswer) {
-	// what is the capital of australia?
-	// 100 pts
 	const isCorrect = userAnswer === 'Canberra';
 
 	if (isCorrect) {
@@ -12,8 +10,6 @@ function australia(userAnswer) {
 }
 
 function canada(userAnswer) {
-	// what is the capital of canada?
-	// 100 pts
 	const isCorrect = userAnswer === 'Ottawa';
 
 	if (isCorrect) {
@@ -25,44 +21,71 @@ function canada(userAnswer) {
 function uppercase(userAnswer, word) {
 	// what is <word> in all capital letters?
 	// 200 pts
+	const isCorrect = userAnswer === word.toUpperCase();
+
+	if (isCorrect) {
+		points += 200;
+	}
+	return isCorrect;
 }
 
 function firstThreeLetters(userAnswer, word) {
-	// what are the first three letters of <word>?
-	// 200 pts
+	const isCorrect = userAnswer === word.substr(0, 3);
+
+	if (isCorrect) {
+		points += 200;
+	}
+	return isCorrect;
 }
 
 function squared(userAnswer, number) {
-	// what is <number> squared?
-	// 200 pts
-
 	const isCorrect = userAnswer == number ** 2;
+
+	if (isCorrect) {
+		points += 200;
+	}
+	return isCorrect;
 }
 
 function multiplication(userAnswer, num1, num2) {
-	// what is <num1> multiplied by <num2>?
-	// 300 pts
+	const isCorrect = userAnswer == num1 * num2;
+
+	if (isCorrect) {
+		points += 300;
+	}
+	return isCorrect;
 }
 
 function age(userAnswer, currentYear, birthYear) {
-	// if someone was born in <birthYear> and already has had their birthday this year, how old are they?
-	// 300 pts
+	const isCorrect = userAnswer == currentYear - birthYear;
+
+	if (isCorrect) {
+		points += 300;
+	}
+	return isCorrect;
 }
 
 function larger(userAnswer, num1, num2) {
-	// which of ${number4} and ${number5} is larger (if they're the same then pick that number)?
-	// 300 pts
+	let isCorrect;
+
+	if (num1 > num2) {
+		isCorrect = userAnswer == num1;
+	} else {
+		isCorrect = userAnswer == num2;
+	}
+
+	if (isCorrect) {
+		points += 300;
+	}
+	return isCorrect;
 }
 
 function getScore() {
 	// returns the current user's quiz score score
+	return points;
 }
 
 // DO NOT MODIFY CODE UNDER THIS COMMENT
-
-// Do not worry about what is underneath here: it's the rest
-// of what makes this page works. You'l learn about how these
-// things work as you work through the workshop
 
 (function () {
 	const words = [
