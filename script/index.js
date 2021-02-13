@@ -1,92 +1,60 @@
 let points = 0;
+const zero = (points += 0);
 
-function australia(userAnswer) {
+const australia = (userAnswer) => {
 	const isCorrect = userAnswer === 'Canberra';
-
-	if (isCorrect) {
-		points += 100;
-	}
+	points = isCorrect ? (points += 100) : zero;
 	return isCorrect;
-}
+};
 
-function canada(userAnswer) {
+const canada = (userAnswer) => {
 	const isCorrect = userAnswer === 'Ottawa';
-
-	if (isCorrect) {
-		points += 100;
-	}
+	points = isCorrect ? (points += 100) : zero;
 	return isCorrect;
-}
+};
 
-function uppercase(userAnswer, word) {
-	// what is <word> in all capital letters?
-	// 200 pts
+const uppercase = (userAnswer, word) => {
 	const isCorrect = userAnswer === word.toUpperCase();
-
-	if (isCorrect) {
-		points += 200;
-	}
+	points = isCorrect ? (points += 200) : zero;
 	return isCorrect;
-}
+};
 
-function firstThreeLetters(userAnswer, word) {
+const firstThreeLetters = (userAnswer, word) => {
 	const isCorrect = userAnswer === word.substr(0, 3);
-
-	if (isCorrect) {
-		points += 200;
-	}
+	points = isCorrect ? (points += 200) : zero;
 	return isCorrect;
-}
+};
 
-function squared(userAnswer, number) {
-	const isCorrect = userAnswer == number ** 2;
-
-	if (isCorrect) {
-		points += 200;
-	}
+const squared = (userAnswer, num) => {
+	const isCorrect = userAnswer == num ** 2;
+	points = isCorrect ? (points += 200) : zero;
 	return isCorrect;
-}
+};
 
-function multiplication(userAnswer, num1, num2) {
-	const isCorrect = userAnswer == num1 * num2;
-
-	if (isCorrect) {
-		points += 300;
-	}
+const multiplication = (userAnswer, num2, num3) => {
+	const isCorrect = userAnswer == num2 * num3;
+	points = isCorrect ? (points += 300) : zero;
 	return isCorrect;
-}
+};
 
-function age(userAnswer, currentYear, birthYear) {
+const age = (userAnswer, currentYear, birthYear) => {
 	const isCorrect = userAnswer == currentYear - birthYear;
-
-	if (isCorrect) {
-		points += 300;
-	}
+	points = isCorrect ? (points += 300) : zero;
 	return isCorrect;
-}
+};
 
-function larger(userAnswer, num1, num2) {
+const larger = (userAnswer, num4, num5) => {
 	let isCorrect;
-
-	if (num1 > num2) {
-		isCorrect = userAnswer == num1;
-	} else {
-		isCorrect = userAnswer == num2;
-	}
-
-	if (isCorrect) {
-		points += 300;
-	}
+	isCorrect = num4 > num5 ? userAnswer == num4 : userAnswer == num5;
+	points = isCorrect ? (points += 300) : zero;
 	return isCorrect;
-}
+};
 
-function getScore() {
-	// returns the current user's quiz score score
+const getScore = () => {
 	return points;
-}
+};
 
 // DO NOT MODIFY CODE UNDER THIS COMMENT
-
 (function () {
 	const words = [
 		'squeeze',
@@ -123,20 +91,19 @@ function getScore() {
 	let currentQuestion = 0;
 	const text = document.getElementById('text');
 
-	function validate(userResponse) {
+	const validate = (userResponse) => {
 		const answer = process[currentQuestion].validator.apply(window, [
 			userResponse,
 			...(process[currentQuestion].meta ? process[currentQuestion].meta : []),
 		]);
 		let response = '';
 
-		if (answer === true) {
-			response = 'correct!';
-		} else if (answer === false) {
-			response = 'incorrect :(';
-		} else {
-			response = 'got a response other than true or false';
-		}
+		response =
+			answer === true
+				? 'correct!'
+				: answer === false
+				? 'incorrect :('
+				: 'got a response other than tre or false';
 
 		alert(response);
 		currentQuestion++;
@@ -149,7 +116,7 @@ function getScore() {
 		}
 
 		text.innerText = process[currentQuestion].question;
-	}
+	};
 
 	const randomNumber = (max) => Math.floor(Math.random() * max);
 	const randomWord = () => words[randomNumber(words.length)];
@@ -165,47 +132,47 @@ function getScore() {
 
 	const process = [
 		{
-			question: 'what is the capital of australia?',
+			question: 'What is the capital of australia?',
 			validator: australia,
 			points: 100,
 		},
 		{
-			question: 'what is the capital of canada?',
+			question: 'What is the capital of canada?',
 			validator: canada,
 			points: 100,
 		},
 		{
-			question: `what is "${word1}" in all capital letters?`,
+			question: `What is "${word1}" in all capital letters?`,
 			meta: [word1],
 			validator: uppercase,
 			points: 200,
 		},
 		{
-			question: `what are the first three letters of "${word2}"?`,
+			question: `What are the first three letters of "${word2}"?`,
 			meta: [word2],
 			validator: firstThreeLetters,
 			points: 200,
 		},
 		{
-			question: `what is ${number1} squared?`,
+			question: `What is ${number1} squared?`,
 			meta: [number1],
 			validator: squared,
 			points: 200,
 		},
 		{
-			question: `what is ${number2} multiplied by ${number3}?`,
+			question: `What is ${number2} multiplied by ${number3}?`,
 			meta: [number2, number3],
 			validator: multiplication,
 			points: 300,
 		},
 		{
-			question: `if someone was born in ${birthYear} and already has had their birthday this year, how old are they (assuming it's ${currentYear})?`,
+			question: `If someone was born in ${birthYear} and already has had their birthday this year, how old are they (assuming it's ${currentYear})?`,
 			meta: [currentYear, birthYear],
 			validator: age,
 			points: 300,
 		},
 		{
-			question: `which of ${number4} and ${number5} is larger (if they're the same then pick that number)?`,
+			question: `Which of ${number4} and ${number5} is larger (if they're the same then pick that number)?`,
 			meta: [number4, number5],
 			validator: larger,
 			points: 300,
