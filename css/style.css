@@ -6,3 +6,58 @@
 
 	--fs-primary: 1.5625rem;
 }
+
+html {
+	box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	background-color: var(--clr-neutral);
+}
+label {
+	font-family: cursive;
+	font-size: var(--fs-primary);
+}
+input {
+	display: block;
+	width: 100%;
+	margin-top: 0.9375rem;
+	text-align: center;
+	padding: 0 0.9375rem;
+	font-size: var(--fs-primary);
+	border-left-color: transparent;
+	border-right-color: transparent;
+	border-top-color: transparent;
+	border-bottom-color: var(--clr-black);
+	font-family: cursive;
+}
+button {
+	font-family: cursive;
+	padding: 0 1.5625rem;
+	font-size: var(--fs-primary);
+	margin-top: 0.9375rem;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+#container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.question {
+	background-color: var(--clr-white);
+	padding: 1.875rem;
+	box-shadow: 5px 5px 5px var(--clr-dark-grey);
+	text-align: center;
+}
