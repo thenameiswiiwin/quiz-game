@@ -44,8 +44,7 @@ const age = (userAnswer, currentYear, birthYear) => {
 };
 
 const larger = (userAnswer, num4, num5) => {
-	let isCorrect;
-	isCorrect = num4 > num5 ? userAnswer == num4 : userAnswer == num5;
+	let isCorrect = num4 > num5 ? userAnswer == num4 : userAnswer == num5;
 	points = isCorrect ? (points += 300) : zero;
 	return isCorrect;
 };
