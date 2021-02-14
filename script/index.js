@@ -1,51 +1,50 @@
 let points = 0;
-const zero = (points += 0);
 
 const australia = (userAnswer) => {
 	const isCorrect = userAnswer === 'Canberra';
-	points = isCorrect ? (points += 100) : zero;
+	points = isCorrect ? (points += 100) : points;
 	return isCorrect;
 };
 
 const canada = (userAnswer) => {
 	const isCorrect = userAnswer === 'Ottawa';
-	points = isCorrect ? (points += 100) : zero;
+	points = isCorrect ? (points += 100) : points;
 	return isCorrect;
 };
 
 const uppercase = (userAnswer, word) => {
 	const isCorrect = userAnswer === word.toUpperCase();
-	points = isCorrect ? (points += 200) : zero;
+	points = isCorrect ? (points += 200) : points;
 	return isCorrect;
 };
 
 const firstThreeLetters = (userAnswer, word) => {
 	const isCorrect = userAnswer === word.substr(0, 3);
-	points = isCorrect ? (points += 200) : zero;
+	points = isCorrect ? (points += 200) : points;
 	return isCorrect;
 };
 
 const squared = (userAnswer, num) => {
 	const isCorrect = userAnswer == num ** 2;
-	points = isCorrect ? (points += 200) : zero;
+	points = isCorrect ? (points += 200) : points;
 	return isCorrect;
 };
 
 const multiplication = (userAnswer, num2, num3) => {
 	const isCorrect = userAnswer == num2 * num3;
-	points = isCorrect ? (points += 300) : zero;
+	points = isCorrect ? (points += 300) : points;
 	return isCorrect;
 };
 
 const age = (userAnswer, currentYear, birthYear) => {
 	const isCorrect = userAnswer == currentYear - birthYear;
-	points = isCorrect ? (points += 300) : zero;
+	points = isCorrect ? (points += 300) : points;
 	return isCorrect;
 };
 
 const larger = (userAnswer, num4, num5) => {
 	let isCorrect = num4 > num5 ? userAnswer == num4 : userAnswer == num5;
-	points = isCorrect ? (points += 300) : zero;
+	points = isCorrect ? (points += 300) : points;
 	return isCorrect;
 };
 
